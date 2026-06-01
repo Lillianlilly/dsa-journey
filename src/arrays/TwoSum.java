@@ -1,12 +1,10 @@
-
-//Day 1 first problem. Time complexity: O(n²)
-
 package arrays;
 
 import java.util.HashMap;
 
 public class TwoSum {
 
+    // Brute force - Time: O(n²), Space: O(1)
     public static  int[] twoSum(int[] nums, int target){
         for(int i=0; i<nums.length-1; i++){
             for(int j=i+1; j<nums.length; j++){
@@ -18,11 +16,13 @@ public class TwoSum {
         return new int[]{};
     }
 
+    // HashMap - Time: O(n), Space: O(n)
     public static int[] twoSumOptimal(int[] nums, int target){
         HashMap<Integer,Integer> map = new HashMap<>();
         for(int i=0; i<nums.length;i++){
-           if(map.containsKey(target-nums[i])){
-               return new int[]{map.get(target-nums[i]),i};
+            int complement = target - nums[i];
+           if(map.containsKey(complement)){
+               return new int[]{map.get(complement),i};
            }
                map.put(nums[i],i);
         }
