@@ -2,9 +2,23 @@ package arrays;
 
 import java.util.HashMap;
 
+/**
+ * LeetCode #1 - Two Sum
+ * Difficulty: Easy
+ * Problem: Given an array of integers nums and an integer target,
+ * return indices of the two numbers such that they add up to target.
+ * Assume each input has exactly one solution, and you may not use
+ * the same element twice.
+ * Example: nums = [2,7,11,15], target = 9 -> [0,1]
+ * Day 1 of DSA journey
+ */
 public class TwoSum {
 
-    // Brute force - Time: O(n²), Space: O(1)
+    /**
+     * Brute force approach: check every pair of elements.
+     * Time:  O(n^2) - nested loops over n elements
+     * Space: O(1)   - no extra space used
+     */
     public static  int[] twoSum(int[] nums, int target){
         for(int i=0; i<nums.length-1; i++){
             for(int j=i+1; j<nums.length; j++){
@@ -16,7 +30,13 @@ public class TwoSum {
         return new int[]{};
     }
 
-    // HashMap - Time: O(n), Space: O(n)
+    /**
+     * HashMap approach: store each number with its index as we go.
+     * For each number, check if its complement (target - current) was
+     * already seen in the map.
+     * Time:  O(n) - single pass through the array
+     * Space: O(n) - HashMap stores up to n elements
+     */
     public static int[] twoSumOptimal(int[] nums, int target){
         HashMap<Integer,Integer> map = new HashMap<>();
         for(int i=0; i<nums.length;i++){
